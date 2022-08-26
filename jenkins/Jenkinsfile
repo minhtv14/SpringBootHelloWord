@@ -1,8 +1,10 @@
+
 pipeline {
     // chỉ định, nó  được chạy đầu tiên
     agent any
     tools{
         maven 'maven_3_8_6'
+        jdk 'JDK_188'
     }
     // Khối giai đoạn
     stages {
