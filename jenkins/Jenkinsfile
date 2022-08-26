@@ -3,7 +3,7 @@ pipeline {
     agent any
     // Khối giai đoạn
     tools{
-        maven 'maven_3_5_6'
+        maven 'maven_388_6'
     }
     stages {
         // Giai đoạn dọn dẹp (Vì 1 Jenkins điều hành 1 công việc, đảm bảo môi trường sạch sẽ và nguyên sơ)
