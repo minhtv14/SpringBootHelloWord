@@ -15,7 +15,7 @@ pipeline {
             //  Chức năng S.H : Tương tự như trong cv đầu tiên khi chạy 1 backshall của besame (biểu thị nó bằng sh)
             steps {
                 // Liên kết đến link github -> clone
-                sh "git clone https://github.com/jenkins-docs/simple-java-maven-app.git"
+                sh "git clone https://github.com/minhtv14/SpringBootHelloWord.git"
             }
         }
         // Giai đoạn UNAC (build)
