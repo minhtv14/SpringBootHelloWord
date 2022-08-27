@@ -8,6 +8,9 @@ pipeline {
     }
     // Khối giai đoạn
     stages {
+        withMaven(maven: 'mvn') {
+            sh "mvn clean package"
+        }
         // Giai đoạn dọn dẹp (Vì 1 Jenkins điều hành 1 công việc, đảm bảo môi trường sạch sẽ và nguyên sơ)
         stage("Clean Up") {
             steps {
@@ -27,9 +30,6 @@ pipeline {
         stage("Build") {
             // Tạo thư mục(tên công việc) và 1 chuỗi số ngẫu nhiên
             // Sau mỗi giau đoạn sẽ trở lại thư mục ban đầu
-            withMaven(maven: 'mvn') {
-                sh "mvn clean package"
-            }
             steps {
                 // dir() : Tương đương với chạy CD
                 dir("simple-java-maven-app") {
@@ -40,9 +40,6 @@ pipeline {
         }
         // Test
         stage("Test") {
-            withMaven(maven: 'mvn') {
-                sh "mvn clean package"
-            }
             steps {
                 dir("simple-java-maven-app") {
                     sh "mvn test"
