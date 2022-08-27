@@ -3,7 +3,7 @@ pipeline {
     // chỉ định, nó  được chạy đầu tiên
     agent any
     tools{
-        maven 'mvn'
+        maven 'maven_3_8_6'
         jdk 'JDK_1_8'
     }
     // Khối giai đoạn
