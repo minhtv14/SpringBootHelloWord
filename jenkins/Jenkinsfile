@@ -31,7 +31,7 @@ pipeline {
                 // dir() : Tương đương với chạy CD
                 dir("simple-java-maven-app") {
                     // Xây dụng 1 tập tin gel và 1 bước sạch sẽ loại bỏ bất kỳ thư viện nhi phân nào trc đó
-                    sh "mvn clean install"
+                    sh "maven clean install"
                 }
             }
         }
@@ -39,7 +39,7 @@ pipeline {
         stage("Test") {
             steps {
                 dir("simple-java-maven-app") {
-                    sh "mvn test"
+                    sh "maven test"
                 }
             }
         }
