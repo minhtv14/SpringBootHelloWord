@@ -28,7 +28,6 @@ pipeline {
             // Tạo thư mục(tên công việc) và 1 chuỗi số ngẫu nhiên
             // Sau mỗi giau đoạn sẽ trở lại thư mục ban đầu
             steps {
-                def mvnHome = tool name: 'Apache Maven 3.6.0', type: 'mvn'
                 // dir() : Tương đương với chạy CD
                 dir("simple-java-maven-app") {
                     // Xây dụng 1 tập tin gel và 1 bước sạch sẽ loại bỏ bất kỳ thư viện nhi phân nào trc đó
