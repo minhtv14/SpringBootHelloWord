@@ -1,41 +1,29 @@
 
 pipeline {
-    // chỉ định, nó  được chạy đầu tiên
     agent any
     tools{
         maven 'maven_3_8_6'
         jdk 'JDK_1_8'
     }
-    // Khối giai đoạn
     stages {
         // Giai đoạn dọn dẹp (Vì 1 Jenkins điều hành 1 công việc, đảm bảo môi trường sạch sẽ và nguyên sơ)
         stage("Clean Up") {
             steps {
-                // Xóa thư mục làm việc đang sử dụng bên trong Jenkins
                 deleteDir()
             }
         }
-        // Nhân bản Repo
         stage("Clone Repo") {
-            //  Chức năng S.H : Tương tự như trong cv đầu tiên khi chạy 1 backshall của besame (biểu thị nó bằng sh)
             steps {
-                // Liên kết đến link github -> clone
                 sh "git clone https://github.com/minhtv14/SpringBootHelloWord.git"
             }
         }
-        // Giai đoạn UNAC (build)
         stage("Build") {
-            // Tạo thư mục(tên công việc) và 1 chuỗi số ngẫu nhiên
-            // Sau mỗi giau đoạn sẽ trở lại thư mục ban đầu
             steps {
-                // dir() : Tương đương với chạy CD
                 dir("SpringBootHelloWord") {
-                    // Xây dụng 1 tập tin gel và 1 bước sạch sẽ loại bỏ bất kỳ thư viện nhi phân nào trc đó
                     sh "mvn clean install"
                 }
             }
         }
-        // Test
         stage("Test") {
             steps {
                 dir("SpringBootHelloWord") {
