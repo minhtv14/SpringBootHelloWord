@@ -3,15 +3,8 @@ pipeline {
     agent any
     tools{
         maven 'maven_3_8_6'
-        jdk 'JDK_11_0_9'
     }
     stages {
-        stage('Initialize'){
-            steps{
-                echo "PATH = ${M2_HOME}/bin:${PATH}"
-                echo "M2_HOME = /opt/maven"
-            }
-        }
         stage("Clean Up") {
             steps {
                 deleteDir()
