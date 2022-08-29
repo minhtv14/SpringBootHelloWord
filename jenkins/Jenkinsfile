@@ -14,7 +14,7 @@ pipeline {
         }
         stage("Clone Repo") {
             steps {
-                sh "git clone http://192.168.1.200:7990/projects/SES/repos/s3m-plus"
+                sh "git clone https://github.com/minhtv14/SpringBootHelloWord"
             }
         }
         stage("Build") {
