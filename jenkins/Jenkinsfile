@@ -20,14 +20,14 @@ pipeline {
         stage("Build") {
             steps {
                 dir("SpringBootHelloWord") {
-                    bat "mvn clean install"
+                    sh "mvn clean install"
                 }
             }
         }
         stage("Test") {
             steps {
                 dir("SpringBootHelloWord") {
-                    bat "mvn test"
+                    sh "mvn test"
                 }
             }
         }
