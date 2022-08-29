@@ -6,7 +6,12 @@ pipeline {
         jdk 'JDK_11_0_9'
     }
     stages {
-        // Giai đoạn dọn dẹp (Vì 1 Jenkins điều hành 1 công việc, đảm bảo môi trường sạch sẽ và nguyên sơ)
+        stage('Initialize'){
+            steps{
+                echo "PATH = ${M2_HOME}/bin:${PATH}"
+                echo "M2_HOME = /opt/maven"
+            }
+        }
         stage("Clean Up") {
             steps {
                 deleteDir()
